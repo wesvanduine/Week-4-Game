@@ -19,18 +19,25 @@ var losses= 0;
 
 
 /*===============FUNCTIONS==============*/
+
+/*function to call a random number */
+function randomValue(min, max) {
+	return Math.floor(Math.random() * (max-min +1)) + min;
+}
+
 function startGame(){
+	
 	// reset current score to 0
 	currentScore = 0;
 
 	// set target score to random number between 19-120
-	targetScore = Math.floor(Math.random() * (120-19 + 1)) + 19; 
+	targetScore = randomValue(19,120); 
 
 	// set a random number between 1-12 for each crystal
-	crystalGreen = Math.floor(Math.random() * (12-1 + 1)) +1;
-	crystalPurple = Math.floor(Math.random() * (12-1 + 1)) +1;
-	crystalBlue = Math.floor(Math.random() * (12-1 + 1)) +1;
-	crystalYellow = Math.floor(Math.random() * (12-1 + 1)) +1;
+	crystalGreen = randomValue(1,12);
+	crystalPurple = randomValue(1,12); 
+	crystalBlue = randomValue(1,12);
+	crystalYellow = randomValue(1,12); 
 
 	//Testing
 	console.log("-----------------------------------");
@@ -49,25 +56,34 @@ function startGame(){
 
 	//when crystal is clicked add value 
 	function addGreen(){
-		currentScore = crystalGreen + currentScore;
+		currentScore =  currentScore + crystalGreen;
 		console.log(currentScore);
 		//change the html to refelect the current score
 		$("#currentScore").html(currentScore);
+		
+		//run the checkWin Function
+		checkWin();
 	}
 	function addPurple(){
-		currentScore = crystalPurple + currentScore;
+		currentScore = currentScore + crystalPurple;
 		console.log(currentScore);
 		//change the html to refelect the current score
 		$("#currentScore").html(currentScore);
+		
+		//run the checkWin Function
+		checkWin();
 	}
 	function addBlue(){
-		currentScore = crystalBlue + currentScore;
+		currentScore =  currentScore + crystalBlue;
 		console.log(currentScore);
 		//change the html to refelect the current score
 		$("#currentScore").html(currentScore);
+		
+		//run the checkWin Function
+		checkWin();
 	}
 	function addYellow(){
-		currentScore = crystalYellow + currentScore;
+		currentScore =  currentScore + crystalYellow;
 		console.log(currentScore);
 		//change the html to refelect the current score
 		$("#currentScore").html(currentScore);
